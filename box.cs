@@ -16,6 +16,7 @@ namespace ButtonCommandBoard
         private readonly string commandsFile = "commands.txt";
         private readonly string descriptionsFile = "descriptions.txt";
         private readonly string resetFlagFile = "reset.flag";
+        private readonly string debugLogFile = "debug.log";
 
         public CommandBoard()
         {
@@ -31,6 +32,21 @@ namespace ButtonCommandBoard
             this.Resize += new EventHandler(Form_Resize);
             this.FormClosing += new FormClosingEventHandler(Form_Closing);
             LayoutControls();
+        }
+
+        private void LogDebug(string message)
+        {
+            try
+            {
+                using (StreamWriter writer = File.AppendText(debugLogFile))
+                {
+                    writer.WriteLine("[{0:yyyy-MM-dd HH:mm:ss}] {1}", DateTime.Now, message);
+                }
+            }
+            catch
+            {
+                // Silent fail
+            }
         }
 
         private void InitializeControls()
@@ -53,7 +69,7 @@ namespace ButtonCommandBoard
                 buttons[i].FlatAppearance.MouseDownBackColor = Color.SkyBlue;
                 buttons[i].Click += new EventHandler(Button_Click);
                 this.Controls.Add(buttons[i]);
-                Console.WriteLine("Created button " + (i + 1).ToString());
+                LogDebug("Created button " + (i + 1).ToString());
 
                 commandTextBoxes[i] = new TextBox
                 {
@@ -64,7 +80,7 @@ namespace ButtonCommandBoard
                     ForeColor = Color.FromArgb(22, 181, 4) // #16B504 green
                 };
                 this.Controls.Add(commandTextBoxes[i]);
-                Console.WriteLine("Created command TextBox " + (i + 1).ToString());
+                LogDebug("Created command TextBox " + (i + 1).ToString());
 
                 descriptionTextBoxes[i] = new TextBox
                 {
@@ -75,7 +91,7 @@ namespace ButtonCommandBoard
                     ForeColor = Color.White
                 };
                 this.Controls.Add(descriptionTextBoxes[i]);
-                Console.WriteLine("Created description TextBox " + (i + 1).ToString());
+                LogDebug("Created description TextBox " + (i + 1).ToString());
 
                 textBoxLabels[i] = new Label
                 {
@@ -85,7 +101,7 @@ namespace ButtonCommandBoard
                     ForeColor = Color.White
                 };
                 this.Controls.Add(textBoxLabels[i]);
-                Console.WriteLine("Created TextBox label " + (i + 1).ToString());
+                LogDebug("Created TextBox label " + (i + 1).ToString());
             }
         }
 
@@ -102,7 +118,7 @@ namespace ButtonCommandBoard
                     if (File.Exists(resetFlagFile))
                     {
                         File.Delete(resetFlagFile);
-                        Console.WriteLine("Reset commands to default due to reset.flag");
+                        LogDebug("Reset commands to default due to reset.flag");
                     }
                     return;
                 }
@@ -111,12 +127,12 @@ namespace ButtonCommandBoard
                 for (int i = 0; i < Math.Min(commands.Length, 16); i++)
                 {
                     commandTextBoxes[i].Text = commands[i];
-                    Console.WriteLine("Loaded command " + (i + 1).ToString() + ": " + commands[i]);
+                    LogDebug("Loaded command " + (i + 1).ToString() + ": " + commands[i]);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error loading commands: " + ex.Message);
+                LogDebug("Error loading commands: " + ex.Message);
             }
         }
 
@@ -130,13 +146,13 @@ namespace ButtonCommandBoard
                     for (int i = 0; i < Math.Min(descriptions.Length, 16); i++)
                     {
                         descriptionTextBoxes[i].Text = descriptions[i];
-                        Console.WriteLine("Loaded description " + (i + 1).ToString() + ": " + descriptions[i]);
+                        LogDebug("Loaded description " + (i + 1).ToString() + ": " + descriptions[i]);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error loading descriptions: " + ex.Message);
+                LogDebug("Error loading descriptions: " + ex.Message);
             }
         }
 
@@ -153,12 +169,12 @@ namespace ButtonCommandBoard
                 }
                 File.WriteAllLines(commandsFile, commands);
                 File.WriteAllLines(descriptionsFile, descriptions);
-                Console.WriteLine("Saved commands to " + commandsFile);
-                Console.WriteLine("Saved descriptions to " + descriptionsFile);
+                LogDebug("Saved commands to " + commandsFile);
+                LogDebug("Saved descriptions to " + descriptionsFile);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error saving commands/descriptions: " + ex.Message);
+                LogDebug("Error saving commands/descriptions: " + ex.Message);
             }
         }
 
@@ -196,7 +212,7 @@ namespace ButtonCommandBoard
                     startX + col * (buttonSize + buttonSpacing),
                     startY + row * (buttonSize + buttonSpacing)
                 );
-                Console.WriteLine("Positioned button " + (i + 1).ToString() + " at (" + buttons[i].Location.X + "," + buttons[i].Location.Y + ")");
+                LogDebug("Positioned button " + (i + 1).ToString() + " at (" + buttons[i].Location.X + "," + buttons[i].Location.Y + ")");
             }
 
             for (int i = 0; i < 16; i++)
@@ -205,21 +221,21 @@ namespace ButtonCommandBoard
                     startX + totalGridWidth + buttonSpacing,
                     startY + i * textBoxHeight + (textBoxHeight - textBoxLabels[i].Height) / 2
                 );
-                Console.WriteLine("Positioned TextBox label " + (i + 1).ToString() + " at (" + textBoxLabels[i].Location.X + "," + textBoxLabels[i].Location.Y + ")");
+                LogDebug("Positioned TextBox label " + (i + 1).ToString() + " at (" + textBoxLabels[i].Location.X + "," + textBoxLabels[i].Location.Y + ")");
 
                 commandTextBoxes[i].Location = new Point(
                     startX + totalGridWidth + buttonSpacing + labelWidth,
                     startY + i * textBoxHeight
                 );
                 commandTextBoxes[i].Size = new Size(commandWidth, textBoxHeight);
-                Console.WriteLine("Positioned command TextBox " + (i + 1).ToString() + " at (" + commandTextBoxes[i].Location.X + "," + commandTextBoxes[i].Location.Y + ")");
+                LogDebug("Positioned command TextBox " + (i + 1).ToString() + " at (" + commandTextBoxes[i].Location.X + "," + commandTextBoxes[i].Location.Y + ")");
 
                 descriptionTextBoxes[i].Location = new Point(
                     startX + totalGridWidth + buttonSpacing + labelWidth + commandWidth + commandSpacing,
                     startY + i * textBoxHeight
                 );
                 descriptionTextBoxes[i].Size = new Size(descriptionWidth, textBoxHeight);
-                Console.WriteLine("Positioned description TextBox " + (i + 1).ToString() + " at (" + descriptionTextBoxes[i].Location.X + "," + descriptionTextBoxes[i].Location.Y + ")");
+                LogDebug("Positioned description TextBox " + (i + 1).ToString() + " at (" + descriptionTextBoxes[i].Location.X + "," + descriptionTextBoxes[i].Location.Y + ")");
             }
         }
 
