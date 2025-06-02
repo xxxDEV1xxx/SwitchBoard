@@ -37,7 +37,7 @@ namespace ButtonCommandBoard
         {
             this.Text = "Command Board";
             this.Size = new Size(800, 600);
-            this.MinimumSize = new Size(0, 0);
+            this.MinimumSize = new Size(100, 100); // Smaller minimum size
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.BackColor = Color.Black;
             this.TopMost = true;
@@ -46,7 +46,7 @@ namespace ButtonCommandBoard
             LoadCommands();
             LoadDescriptions();
             this.Resize += new EventHandler(Form_Resize);
-            this.FormClosing += new FormClosingEventHandler(Form_Closing); // Fixed delegate
+            this.FormClosing += new FormClosingEventHandler(Form_Closing);
             this.Resize += new EventHandler(Form_WindowStateChanged);
 
             keyboardProc = HookCallback;
@@ -102,7 +102,6 @@ namespace ButtonCommandBoard
         private void InitializeControls()
         {
             string defaultCommand = "ipconfig /all";
-            string openWrtCommand = "plink -l root -i C:\\Users\\DEV1\\.ssh\\id_rsa.ppk 192.168.1.1 \"conntrack -D -s 192.168.1.7 >> /tmp/clear_192.168.1.7.log 2>&1 & killall -HUP dnsmasq >> /tmp/clear_192.168.1.7.log 2>&1 & arp -d 192.168.1.7 >> /tmp/clear_192.168.1.7.log 2>&1 &\"";
 
             for (int i = 0; i < 16; i++)
             {
@@ -124,7 +123,7 @@ namespace ButtonCommandBoard
 
                 commandTextBoxes[i] = new TextBox
                 {
-                    Text = (i == 1) ? openWrtCommand : defaultCommand,
+                    Text = defaultCommand,
                     Font = new Font("Arial", 10),
                     Width = 200,
                     BackColor = Color.Black,
@@ -135,7 +134,7 @@ namespace ButtonCommandBoard
 
                 descriptionTextBoxes[i] = new TextBox
                 {
-                    Text = (i == 1) ? "Clear connections and caches for 192.168.1.7 (simultaneous)" : "Description " + (i + 1).ToString(),
+                    Text = "Description " + (i + 1).ToString(),
                     Font = new Font("Arial", 10),
                     Width = 200,
                     BackColor = Color.Black,
@@ -162,11 +161,9 @@ namespace ButtonCommandBoard
             {
                 if (File.Exists(resetFlagFile) || !File.Exists(commandsFile))
                 {
-                    string defaultCommand = "ipconfig /all";
-                    string openWrtCommand = "plink -l root -i C:\\Users\\DEV1\\.ssh\\id_rsa.ppk 192.168.1.1 \"conntrack -D -s 192.168.1.7 >> /tmp/clear_192.168.1.7.log 2>&1 & killall -HUP dnsmasq >> /tmp/clear_192.168.1.7.log 2>&1 & arp -d 192.168.1.7 >> /tmp/clear_192.168.1.7.log 2>&1 &\"";
                     for (int i = 0; i < 16; i++)
                     {
-                        commandTextBoxes[i].Text = (i == 1) ? openWrtCommand : defaultCommand;
+                        commandTextBoxes[i].Text = "ipconfig /all";
                     }
                     if (File.Exists(resetFlagFile))
                     {
@@ -291,24 +288,24 @@ namespace ButtonCommandBoard
                     startY + i * textBoxHeight
                 );
                 commandTextBoxes[i].Size = new Size(commandWidth, textBoxHeight);
-                LogDebug("Positioned command TextBox " + (i + 1).ToString() + " at (" + commandTextBoxes[i].Location.X.ToString() + "," + textBoxLabels[i].Location.Y.ToString() + ")");
+                LogDebug("Positioned textBox " + (i + 1).ToString() + " at (" + commandTextBoxes[i].Location.X.ToString() + "," + commandTextBoxes[i].Location.Y.ToString() + ")");
 
                 descriptionTextBoxes[i].Location = new Point(
                     startX + totalGridWidth + buttonSpacing + labelWidth + commandWidth + commandSpacing,
                     startY + i * textBoxHeight
                 );
                 descriptionTextBoxes[i].Size = new Size(descriptionWidth, textBoxHeight);
-                LogDebug("Positioned description TextBox " + (i + 1).ToString() + " at (" + descriptionTextBoxes[i].Location.X.ToString() + "," + descriptionTextBoxes[i].Location.Y.ToString() + ")");
+                LogDebug("Positioned description " + (i + 1).ToString() + " at (" + descriptionTextBoxes[i].Location.X.ToString() + "," + descriptionTextBoxes[i].Location.Y.ToString() + ")");
             }
         }
 
         private void Button_Click(object sender, EventArgs e)
         {
-            Button btn = sender as Button;
+            Button btn = (Button)sender;
             int index = (int)btn.Tag;
-            string command = commandTextBoxes[index].Text.Trim();
+            string cmd = commandTextBoxes[index].Text.Trim();
 
-            if (string.IsNullOrEmpty(command))
+            if (string.IsNullOrEmpty(cmd))
             {
                 MessageBox.Show("Please enter a command in the TextBox.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -319,7 +316,7 @@ namespace ButtonCommandBoard
                 ProcessStartInfo psi = new ProcessStartInfo
                 {
                     FileName = "cmd.exe",
-                    Arguments = "/C " + command,
+                    Arguments = "/C " + cmd,
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false,
@@ -333,12 +330,19 @@ namespace ButtonCommandBoard
                     process.WaitForExit();
 
                     string result = string.IsNullOrEmpty(error) ? output : "Error: " + error;
-                    MessageBox.Show(result, "Output of Command " + (index + 1).ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        MessageBox.Show(result, "Output of Command " + (index + 1), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        LogDebug("Command " + (index + 1).ToString() + " executed with no output");
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to execute command: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
