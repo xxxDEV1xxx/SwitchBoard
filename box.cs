@@ -4,6 +4,8 @@ using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Linq; // Added for Contains
+using System.ComponentModel; // Added for BackgroundWorker
 
 namespace ButtonCommandBoard
 {
@@ -59,7 +61,7 @@ namespace ButtonCommandBoard
             using (Process curProcess = Process.GetCurrentProcess())
             using (ProcessModule curModule = curProcess.MainModule)
             {
-                keyboardHookId = SetWindowsHookEx(WH_KEYBOARD_LL, keyboardProc, GetModuleHandle(curModule.ModuleName), 0);
+                keyboardHookId = SetWindowsHookEx(WH_KEYBOARD_LL, keyboardProc, GetModuleHandle(null), 0);
                 LogDebug("Keyboard hook set: " + keyboardHookId.ToString());
             }
 
@@ -116,7 +118,7 @@ namespace ButtonCommandBoard
                     Text = ((currentPage - 1) * 16 + i + 1).ToString(),
                     Tag = i,
                     FlatStyle = FlatStyle.Standard,
-                    BackColor = (i < 4 || (i >= 8 && i < 12)) ? Color.FromArgb(140, 10, 13) : Color.FromArgb(22, 181, 4),
+                    BackColor = new int[] { 0, 2, 5, 7, 8, 10, 13, 15 }.Contains(i) ? Color.FromArgb(140, 10, 13) : Color.FromArgb(22, 181, 4),
                     ForeColor = Color.Black,
                     Font = new Font("Arial", 12, FontStyle.Bold)
                 };
@@ -450,39 +452,129 @@ namespace ButtonCommandBoard
                 return;
             }
 
-            try
+            // Disable the button to prevent multiple clicks
+            btn.Enabled = false;
+
+            // Set up BackgroundWorker
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (s, args) =>
             {
-                ProcessStartInfo psi = new ProcessStartInfo
+                try
                 {
-                    FileName = "cmd.exe",
-                    Arguments = "/C " + cmd,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
-                };
+                    string resolvedCmd = ResolveCommand(cmd);
+                    ProcessStartInfo psi;
 
-                using (Process process = Process.Start(psi))
-                {
-                    string output = process.StandardOutput.ReadToEnd();
-                    string error = process.StandardError.ReadToEnd();
-                    process.WaitForExit();
-
-                    string result = string.IsNullOrEmpty(error) ? output : "Error: " + error;
-                    if (!string.IsNullOrEmpty(result))
+                    // For sfc /scannow, use a visible cmd window
+                    if (resolvedCmd.ToLower().Contains("sfc") || resolvedCmd.ToLower().Contains("scannow"))
                     {
-                        MessageBox.Show(result, "Output of Command " + ((currentPage - 1) * 16 + index + 1).ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        psi = new ProcessStartInfo
+                        {
+                            FileName = "cmd.exe",
+                            Arguments = "/K " + resolvedCmd, // /K keeps the window open
+                            UseShellExecute = true, // Required for visible window
+                            CreateNoWindow = false,
+                            Verb = "runas" // Request elevation for sfc
+                        };
                     }
                     else
                     {
-                        LogDebug("Command " + ((currentPage - 1) * 16 + index + 1).ToString() + " executed with no output");
+                        // For other commands, capture output
+                        psi = new ProcessStartInfo
+                        {
+                            FileName = "cmd.exe",
+                            Arguments = "/C " + resolvedCmd, // /C closes the window after execution
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true,
+                            UseShellExecute = false,
+                            CreateNoWindow = true
+                        };
+                    }
+
+                    using (Process process = new Process { StartInfo = psi })
+                    {
+                        process.Start();
+                        string result;
+
+                        if (resolvedCmd.ToLower().Contains("sfc") || resolvedCmd.ToLower().Contains("scannow"))
+                        {
+                            // Wait for the process to exit (user will close the cmd window)
+                            process.WaitForExit();
+                            result = "Command executed in external window.";
+                        }
+                        else
+                        {
+                            // Capture output for non-sfc commands
+                            string output = process.StandardOutput.ReadToEnd();
+                            string error = process.StandardError.ReadToEnd();
+                            process.WaitForExit();
+                            result = string.IsNullOrEmpty(error) ? output : "Error: " + error;
+                        }
+
+                        args.Result = new Tuple<string, int, bool>(result, index, true);
                     }
                 }
-            }
-            catch (Exception ex)
+                catch (Exception ex)
+                {
+                    args.Result = new Tuple<string, int, bool>("Error: " + ex.Message, index, false);
+                }
+            };
+
+            worker.RunWorkerCompleted += (s, args) =>
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Tuple<string, int, bool> result = (Tuple<string, int, bool>)args.Result;
+                string output = result.Item1;
+                int resultIndex = result.Item2;
+                bool success = result.Item3;
+
+                btn.Enabled = true;
+
+                if (success && !string.IsNullOrEmpty(output))
+                {
+                    // Show output only for non-sfc commands
+                    if (!(cmd.ToLower().Contains("sfc") || cmd.ToLower().Contains("scannow")))
+                    {
+                        MessageBox.Show(output, "Output of Command " + ((currentPage - 1) * 16 + resultIndex + 1).ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    LogDebug("Command " + ((currentPage - 1) * 16 + resultIndex + 1).ToString() + " executed");
+                }
+                else if (success)
+                {
+                    LogDebug("Command " + ((currentPage - 1) * 16 + resultIndex + 1).ToString() + " executed with no output");
+                }
+                else
+                {
+                    MessageBox.Show(output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LogDebug("Error executing command: " + output);
+                }
+            };
+
+            worker.RunWorkerAsync();
+        }
+
+        private string ResolveCommand(string cmd)
+        {
+            if (string.IsNullOrEmpty(cmd))
+                return cmd;
+
+            string[] parts = cmd.Split(new[] { ' ' }, 2);
+            string executable = parts[0];
+            string arguments = parts.Length > 1 ? parts[1] : "";
+
+            if (File.Exists(executable))
+                return cmd;
+
+            string[] paths = Environment.GetEnvironmentVariable("PATH").Split(';');
+            foreach (string path in paths)
+            {
+                string fullPath = Path.Combine(path, executable);
+                if (File.Exists(fullPath))
+                    return arguments.Length > 0 ? "\"" + fullPath + "\" " + arguments : fullPath;
+                fullPath = Path.Combine(path, executable + ".exe");
+                if (File.Exists(fullPath))
+                    return arguments.Length > 0 ? "\"" + fullPath + "\" " + arguments : fullPath;
             }
+
+            return cmd;
         }
 
         [STAThread]
