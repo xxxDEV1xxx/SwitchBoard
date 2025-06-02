@@ -22,7 +22,6 @@ namespace ButtonCommandBoard
         private readonly string commandsFile = "commands.txt";
         private readonly string descriptionsFile = "descriptions.txt";
         private readonly string resetFlagFile = "reset.flag";
-        private readonly string debugLogFile = "debug.log";
         private IntPtr keyboardHookId = IntPtr.Zero;
         private LowLevelKeyboardProc keyboardProc;
         private int currentPage = 1; // 1-based: Page 1 (buttons 1–16), Page 2 (17–32), etc.
@@ -62,25 +61,9 @@ namespace ButtonCommandBoard
             using (ProcessModule curModule = curProcess.MainModule)
             {
                 keyboardHookId = SetWindowsHookEx(WH_KEYBOARD_LL, keyboardProc, GetModuleHandle(null), 0);
-                LogDebug("Keyboard hook set: " + keyboardHookId.ToString());
             }
 
             LayoutControls();
-        }
-
-        private void LogDebug(string message)
-        {
-            try
-            {
-                using (StreamWriter writer = File.AppendText(debugLogFile))
-                {
-                    writer.WriteLine("[{0:yyyy-MM-dd HH:mm:ss}] {1}", DateTime.Now, message);
-                }
-            }
-            catch
-            {
-                // Silent fail
-            }
         }
 
         private IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
@@ -98,7 +81,6 @@ namespace ButtonCommandBoard
                         this.Invoke((MethodInvoker)delegate
                         {
                             buttons[index].PerformClick();
-                            LogDebug(String.Format("F{0} pressed, triggered button {1} on page {2}", index + 1, (currentPage - 1) * 16 + index + 1, currentPage));
                         });
                         return new IntPtr(1);
                     }
@@ -127,7 +109,6 @@ namespace ButtonCommandBoard
                 buttons[i].FlatAppearance.MouseDownBackColor = Color.SkyBlue;
                 buttons[i].Click += new EventHandler(Button_Click);
                 this.Controls.Add(buttons[i]);
-                LogDebug("Created button " + (i + 1).ToString());
 
                 commandTextBoxes[i] = new TextBox
                 {
@@ -138,7 +119,6 @@ namespace ButtonCommandBoard
                     ForeColor = Color.FromArgb(22, 181, 4)
                 };
                 this.Controls.Add(commandTextBoxes[i]);
-                LogDebug("Created command TextBox " + (i + 1).ToString());
 
                 descriptionTextBoxes[i] = new TextBox
                 {
@@ -149,7 +129,6 @@ namespace ButtonCommandBoard
                     ForeColor = Color.White
                 };
                 this.Controls.Add(descriptionTextBoxes[i]);
-                LogDebug("Created description TextBox " + (i + 1).ToString());
 
                 textBoxLabels[i] = new Label
                 {
@@ -159,7 +138,6 @@ namespace ButtonCommandBoard
                     ForeColor = Color.White
                 };
                 this.Controls.Add(textBoxLabels[i]);
-                LogDebug("Created TextBox label " + (i + 1).ToString());
             }
 
             // Plus and Minus buttons
@@ -216,7 +194,6 @@ namespace ButtonCommandBoard
                 SaveCurrentPageData();
                 currentPage++;
                 UpdatePage();
-                LogDebug("Switched to page " + currentPage.ToString());
             }
         }
 
@@ -227,7 +204,6 @@ namespace ButtonCommandBoard
                 SaveCurrentPageData();
                 currentPage--;
                 UpdatePage();
-                LogDebug("Switched to page " + currentPage.ToString());
             }
         }
 
@@ -272,11 +248,10 @@ namespace ButtonCommandBoard
 
                 File.WriteAllLines(commandsFile, allCommands);
                 File.WriteAllLines(descriptionsFile, allDescriptions);
-                LogDebug("Saved data for page " + currentPage.ToString());
             }
-            catch (Exception ex)
+            catch
             {
-                LogDebug("Error saving page data: " + ex.Message);
+                // Silent fail
             }
         }
 
@@ -293,7 +268,6 @@ namespace ButtonCommandBoard
                     if (File.Exists(resetFlagFile))
                     {
                         File.Delete(resetFlagFile);
-                        LogDebug("Reset commands to default due to reset.flag");
                     }
                     return;
                 }
@@ -305,13 +279,12 @@ namespace ButtonCommandBoard
                     if (index < commands.Length)
                     {
                         commandTextBoxes[i].Text = commands[index];
-                        LogDebug("Loaded command " + (index + 1).ToString() + ": " + commands[index]);
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                LogDebug("Error loading commands: " + ex.Message);
+                // Silent fail
             }
         }
 
@@ -328,20 +301,18 @@ namespace ButtonCommandBoard
                         if (index < descriptions.Length)
                         {
                             descriptionTextBoxes[i].Text = descriptions[index];
-                            LogDebug("Loaded description " + (index + 1).ToString() + ": " + descriptions[index]);
                         }
                     }
                     int pageDescIndex = MaxPages * 16 + currentPage - 1;
                     if (pageDescIndex < descriptions.Length)
                     {
                         pageDescriptionTextBox.Text = descriptions[pageDescIndex];
-                        LogDebug("Loaded page description for page " + currentPage.ToString() + ": " + descriptions[pageDescIndex]);
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                LogDebug("Error loading descriptions: " + ex.Message);
+                // Silent fail
             }
         }
 
@@ -354,12 +325,11 @@ namespace ButtonCommandBoard
                 if (keyboardHookId != IntPtr.Zero)
                 {
                     UnhookWindowsHookEx(keyboardHookId);
-                    LogDebug("Keyboard hook removed");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                LogDebug("Error removing hook: " + ex.Message);
+                // Silent fail
             }
         }
 
@@ -371,7 +341,6 @@ namespace ButtonCommandBoard
         private void Form_WindowStateChanged(object sender, EventArgs e)
         {
             this.TopMost = (this.WindowState != FormWindowState.Minimized);
-            LogDebug("Window state changed to " + this.WindowState.ToString() + ", TopMost = " + this.TopMost.ToString());
         }
 
         private void LayoutControls()
@@ -402,7 +371,6 @@ namespace ButtonCommandBoard
                     startX + col * (buttonSize + buttonSpacing),
                     startY + row * (buttonSize + buttonSpacing)
                 );
-                LogDebug("Positioned button " + ((currentPage - 1) * 16 + i + 1).ToString() + " at (" + buttons[i].Location.X.ToString() + "," + buttons[i].Location.Y.ToString() + ")");
             }
 
             // TextBox labels, command TextBoxes, description TextBoxes
@@ -412,21 +380,18 @@ namespace ButtonCommandBoard
                     startX + totalGridWidth + buttonSpacing,
                     startY + i * textBoxHeight + (textBoxHeight - textBoxLabels[i].Height) / 2
                 );
-                LogDebug("Positioned TextBox label " + ((currentPage - 1) * 16 + i + 1).ToString() + " at (" + textBoxLabels[i].Location.X.ToString() + "," + textBoxLabels[i].Location.Y.ToString() + ")");
 
                 commandTextBoxes[i].Location = new Point(
                     startX + totalGridWidth + buttonSpacing + labelWidth,
                     startY + i * textBoxHeight
                 );
                 commandTextBoxes[i].Size = new Size(commandWidth, textBoxHeight);
-                LogDebug("Positioned command TextBox " + ((currentPage - 1) * 16 + i + 1).ToString() + " at (" + commandTextBoxes[i].Location.X.ToString() + "," + commandTextBoxes[i].Location.Y.ToString() + ")");
 
                 descriptionTextBoxes[i].Location = new Point(
                     startX + totalGridWidth + buttonSpacing + labelWidth + commandWidth + commandSpacing,
                     startY + i * textBoxHeight
                 );
                 descriptionTextBoxes[i].Size = new Size(descriptionWidth, textBoxHeight);
-                LogDebug("Positioned description TextBox " + ((currentPage - 1) * 16 + i + 1).ToString() + " at (" + descriptionTextBoxes[i].Location.X.ToString() + "," + descriptionTextBoxes[i].Location.Y.ToString() + ")");
             }
 
             // Plus/Minus buttons below button 13 (bottom-left of grid)
@@ -535,16 +500,10 @@ namespace ButtonCommandBoard
                     {
                         MessageBox.Show(output, "Output of Command " + ((currentPage - 1) * 16 + resultIndex + 1).ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    LogDebug("Command " + ((currentPage - 1) * 16 + resultIndex + 1).ToString() + " executed");
                 }
-                else if (success)
-                {
-                    LogDebug("Command " + ((currentPage - 1) * 16 + resultIndex + 1).ToString() + " executed with no output");
-                }
-                else
+                else if (!success)
                 {
                     MessageBox.Show(output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    LogDebug("Error executing command: " + output);
                 }
             };
 
