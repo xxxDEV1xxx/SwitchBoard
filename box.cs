@@ -22,15 +22,17 @@ namespace ButtonCommandBoard
         {
             this.Text = "Command Board";
             this.Size = new Size(800, 600);
-            this.MinimumSize = new Size(600, 400);
+            this.MinimumSize = new Size(0, 0); // Allow any size
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.BackColor = Color.Black;
+            this.TopMost = true; // Always on top
 
             InitializeControls();
             LoadCommands();
             LoadDescriptions();
             this.Resize += new EventHandler(Form_Resize);
             this.FormClosing += new FormClosingEventHandler(Form_Closing);
+            this.Resize += new EventHandler(Form_WindowStateChanged); // Handle TopMost
             LayoutControls();
         }
 
@@ -183,8 +185,15 @@ namespace ButtonCommandBoard
             LayoutControls();
         }
 
+        private void Form_WindowStateChanged(object sender, EventArgs e)
+        {
+            this.TopMost = (this.WindowState != FormWindowState.Minimized); // TopMost off when minimized
+            LogDebug("Window state changed to " + this.WindowState + ", TopMost = " + this.TopMost);
+        }
+
         private void LayoutControls()
         {
+            // Fixed sizes, no scaling
             int margin = 20;
             int gridSize = 4;
             int buttonSize = 50;
@@ -192,12 +201,10 @@ namespace ButtonCommandBoard
             int commandWidth = 200;
             int descriptionWidth = 200;
             int textBoxHeight = 30;
-            int textBoxSpacing = 0;
             int labelWidth = 30;
             int commandSpacing = 10;
 
             int totalGridWidth = gridSize * buttonSize + (gridSize - 1) * buttonSpacing;
-            int totalTextBoxHeight = 16 * textBoxHeight;
 
             int startX = margin;
             int startY = margin;
