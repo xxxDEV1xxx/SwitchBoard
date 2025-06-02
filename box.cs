@@ -43,7 +43,7 @@ namespace ButtonCommandBoard
         {
             this.Text = "Command Board";
             this.Size = new Size(800, 600);
-            this.MinimumSize = new Size(50, 50);
+            this.MinimumSize = new Size(100, 100);
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.BackColor = Color.Black;
             this.TopMost = true;
@@ -432,9 +432,9 @@ namespace ButtonCommandBoard
             minusButton.Location = new Point(startX, gridBottom + 10);
             plusButton.Location = new Point(startX + 40, gridBottom + 10);
 
-            // Page number and description
+            // Page number and description (tightly against page number)
             pageNumberLabel.Location = new Point(startX + 80, gridBottom + 15);
-            pageDescriptionTextBox.Location = new Point(startX + 120, gridBottom + 10);
+            pageDescriptionTextBox.Location = new Point(startX + 80 + pageNumberLabel.Width + 5, gridBottom + 10);
             pageDescriptionTextBox.Size = new Size(200, textBoxHeight);
         }
 
