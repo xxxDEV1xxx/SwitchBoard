@@ -197,52 +197,52 @@ namespace ButtonCommandBoard
             {
                 string[] colorLines = new string[]
                 {
-                    string.Format("Button1BackColor={0},{1},{2}", Button1BackColor.R, Button1BackColor.G, Button1BackColor.B),
-                    string.Format("Button1ForeColor={0},{1},{2}", Button1ForeColor.R, Button1ForeColor.G, Button1ForeColor.B),
-                    string.Format("Button2BackColor={0},{1},{2}", Button2BackColor.R, Button2BackColor.G, Button2BackColor.B),
-                    string.Format("Button2ForeColor={0},{1},{2}", Button2ForeColor.R, Button2ForeColor.G, Button2ForeColor.B),
-                    string.Format("Button3BackColor={0},{1},{2}", Button3BackColor.R, Button3BackColor.G, Button3BackColor.B),
-                    string.Format("Button3ForeColor={0},{1},{2}", Button3ForeColor.R, Button3ForeColor.G, Button3ForeColor.B),
-                    string.Format("Button4BackColor={0},{1},{2}", Button4BackColor.R, Button4BackColor.G, Button4BackColor.B),
-                    string.Format("Button4ForeColor={0},{1},{2}", Button4ForeColor.R, Button4ForeColor.G, Button4ForeColor.B),
-                    string.Format("Button5BackColor={0},{1},{2}", Button5BackColor.R, Button5BackColor.G, Button5BackColor.B),
-                    string.Format("Button5ForeColor={0},{1},{2}", Button5ForeColor.R, Button5ForeColor.G, Button5ForeColor.B),
-                    string.Format("Button6BackColor={0},{1},{2}", Button6BackColor.R, Button6BackColor.G, Button6BackColor.B),
-                    string.Format("Button6ForeColor={0},{1},{2}", Button6ForeColor.R, Button6ForeColor.G, Button6ForeColor.B),
-                    string.Format("Button7BackColor={0},{1},{2}", Button7BackColor.R, Button7BackColor.G, Button7BackColor.B),
-                    string.Format("Button7ForeColor={0},{1},{2}", Button7ForeColor.R, Button7ForeColor.G, Button7ForeColor.B),
-                    string.Format("Button8BackColor={0},{1},{2}", Button8BackColor.R, Button8BackColor.G, Button8BackColor.B),
-                    string.Format("Button8ForeColor={0},{1},{2}", Button8ForeColor.R, Button8ForeColor.G, Button8ForeColor.B),
-                    string.Format("Button9BackColor={0},{1},{2}", Button9BackColor.R, Button9BackColor.G, Button9BackColor.B),
-                    string.Format("Button9ForeColor={0},{1},{2}", Button9ForeColor.R, Button9ForeColor.G, Button9ForeColor.B),
-                    string.Format("Button10BackColor={0},{1},{2}", Button10BackColor.R, Button10BackColor.G, Button10BackColor.B),
-                    string.Format("Button10ForeColor={0},{1},{2}", Button10ForeColor.R, Button10ForeColor.G, Button10ForeColor.B),
-                    string.Format("Button11BackColor={0},{1},{2}", Button11BackColor.R, Button11BackColor.G, Button11BackColor.B),
-                    string.Format("Button11ForeColor={0},{1},{2}", Button11ForeColor.R, Button11ForeColor.G, Button11ForeColor.B),
-                    string.Format("Button12BackColor={0},{1},{2}", Button12BackColor.R, Button12BackColor.G, Button12BackColor.B),
-                    string.Format("Button12ForeColor={0},{1},{2}", Button12ForeColor.R, Button12ForeColor.G, Button12ForeColor.B),
-                    string.Format("Button13BackColor={0},{1},{2}", Button13BackColor.R, Button13BackColor.G, Button13BackColor.B),
-                    string.Format("Button13ForeColor={0},{1},{2}", Button13ForeColor.R, Button13ForeColor.G, Button13ForeColor.B),
-                    string.Format("Button14BackColor={0},{1},{2}", Button14BackColor.R, Button14BackColor.G, Button14BackColor.B),
-                    string.Format("Button14ForeColor={0},{1},{2}", Button14ForeColor.R, Button14ForeColor.G, Button14ForeColor.B),
-                    string.Format("Button15BackColor={0},{1},{2}", Button15BackColor.R, Button15BackColor.G, Button15BackColor.B),
-                    string.Format("Button15ForeColor={0},{1},{2}", Button15ForeColor.R, Button15ForeColor.G, Button15ForeColor.B),
-                    string.Format("Button16BackColor={0},{1},{2}", Button16BackColor.R, Button16BackColor.G, Button16BackColor.B),
-                    string.Format("Button16ForeColor={0},{1},{2}", Button16ForeColor.R, Button16ForeColor.G, Button16ForeColor.B),
-                    string.Format("CommandTextBoxBackColor={0},{1},{2}", CommandTextBoxBackColor.R, CommandTextBoxBackColor.G, CommandTextBoxBackColor.B),
-                    string.Format("CommandTextBoxForeColor={0},{1},{2}", CommandTextBoxForeColor.R, CommandTextBoxForeColor.G, CommandTextBoxForeColor.B),
-                    string.Format("DescriptionTextBoxBackColor={0},{1},{2}", DescriptionTextBoxBackColor.R, DescriptionTextBoxBackColor.G, DescriptionTextBoxBackColor.B),
-                    string.Format("DescriptionTextBoxForeColor={0},{1},{2}", DescriptionTextBoxForeColor.R, DescriptionTextBoxForeColor.G, DescriptionTextBoxForeColor.B),
-                    string.Format("TextBoxLabelBackColor={0},{1},{2}", TextBoxLabelBackColor.R, TextBoxLabelBackColor.G, TextBoxLabelBackColor.B),
-                    string.Format("TextBoxLabelForeColor={0},{1},{2}", TextBoxLabelForeColor.R, TextBoxLabelForeColor.G, TextBoxLabelForeColor.B),
-                    string.Format("PlusMinusEditButtonBackColor={0},{1},{2}", PlusMinusEditButtonBackColor.R, PlusMinusEditButtonBackColor.G, PlusMinusEditButtonBackColor.B),
-                    string.Format("PlusMinusEditButtonForeColor={0},{1},{2}", PlusMinusEditButtonForeColor.R, PlusMinusEditButtonForeColor.G, PlusMinusEditButtonForeColor.B),
-                    string.Format("PageNumberLabelBackColor={0},{1},{2}", PageNumberLabelBackColor.R, PageNumberLabelBackColor.G, PageNumberLabelBackColor.B),
-                    string.Format("PageNumberLabelForeColor={0},{1},{2}", PageNumberLabelForeColor.R, PageNumberLabelForeColor.G, PageNumberLabelForeColor.B),
-                    string.Format("PageDescriptionTextBoxBackColor={0},{1},{2}", PageDescriptionTextBoxBackColor.R, PageDescriptionTextBoxBackColor.G, PageDescriptionTextBoxBackColor.B),
-                    string.Format("PageDescriptionTextBoxForeColor={0},{1},{2}", PageDescriptionTextBoxForeColor.R, PageDescriptionTextBoxForeColor.G, PageDescriptionTextBoxForeColor.B),
-                    string.Format("FormBackColor={0},{1},{2}", FormBackColor.R, FormBackColor.G, FormBackColor.B),
-                    string.Format("ControlBorderColor={0},{1},{2}", ControlBorderColor.R, ControlBorderColor.G, ControlBorderColor.B)
+                    "Button1BackColor=" + Button1BackColor.R + "," + Button1BackColor.G + "," + Button1BackColor.B,
+                    "Button1ForeColor=" + Button1ForeColor.R + "," + Button1ForeColor.G + "," + Button1ForeColor.B,
+                    "Button2BackColor=" + Button2BackColor.R + "," + Button2BackColor.G + "," + Button2BackColor.B,
+                    "Button2ForeColor=" + Button2ForeColor.R + "," + Button2ForeColor.G + "," + Button2ForeColor.B,
+                    "Button3BackColor=" + Button3BackColor.R + "," + Button3BackColor.G + "," + Button3BackColor.B,
+                    "Button3ForeColor=" + Button3ForeColor.R + "," + Button3ForeColor.G + "," + Button3ForeColor.B,
+                    "Button4BackColor=" + Button4BackColor.R + "," + Button4BackColor.G + "," + Button4BackColor.B,
+                    "Button4ForeColor=" + Button4ForeColor.R + "," + Button4ForeColor.G + "," + Button4ForeColor.B,
+                    "Button5BackColor=" + Button5BackColor.R + "," + Button5BackColor.G + "," + Button5BackColor.B,
+                    "Button5ForeColor=" + Button5ForeColor.R + "," + Button5ForeColor.G + "," + Button5ForeColor.B,
+                    "Button6BackColor=" + Button6BackColor.R + "," + Button6BackColor.G + "," + Button6BackColor.B,
+                    "Button6ForeColor=" + Button6ForeColor.R + "," + Button6ForeColor.G + "," + Button6ForeColor.B,
+                    "Button7BackColor=" + Button7BackColor.R + "," + Button7BackColor.G + "," + Button7BackColor.B,
+                    "Button7ForeColor=" + Button7ForeColor.R + "," + Button7ForeColor.G + "," + Button7ForeColor.B,
+                    "Button8BackColor=" + Button8BackColor.R + "," + Button8BackColor.G + "," + Button8BackColor.B,
+                    "Button8ForeColor=" + Button8ForeColor.R + "," + Button8ForeColor.G + "," + Button8ForeColor.B,
+                    "Button9BackColor=" + Button9BackColor.R + "," + Button9BackColor.G + "," + Button9BackColor.B,
+                    "Button9ForeColor=" + Button9ForeColor.R + "," + Button9ForeColor.G + "," + Button9ForeColor.B,
+                    "Button10BackColor=" + Button10BackColor.R + "," + Button10BackColor.G + "," + Button10BackColor.B,
+                    "Button10ForeColor=" + Button10ForeColor.R + "," + Button10ForeColor.G + "," + Button10ForeColor.B,
+                    "Button11BackColor=" + Button11BackColor.R + "," + Button11BackColor.G + "," + Button11BackColor.B,
+                    "Button11ForeColor=" + Button11ForeColor.R + "," + Button11ForeColor.G + "," + Button11ForeColor.B,
+                    "Button12BackColor=" + Button12BackColor.R + "," + Button12BackColor.G + "," + Button12BackColor.B,
+                    "Button12ForeColor=" + Button12ForeColor.R + "," + Button12ForeColor.G + "," + Button12ForeColor.B,
+                    "Button13BackColor=" + Button13BackColor.R + "," + Button13BackColor.G + "," + Button13BackColor.B,
+                    "Button13ForeColor=" + Button13ForeColor.R + "," + Button13ForeColor.G + "," + Button13ForeColor.B,
+                    "Button14BackColor=" + Button14BackColor.R + "," + Button14BackColor.G + "," + Button14BackColor.B,
+                    "Button14ForeColor=" + Button14ForeColor.R + "," + Button14ForeColor.G + "," + Button14ForeColor.B,
+                    "Button15BackColor=" + Button15BackColor.R + "," + Button15BackColor.G + "," + Button15BackColor.B,
+                    "Button15ForeColor=" + Button15ForeColor.R + "," + Button15ForeColor.G + "," + Button15ForeColor.B,
+                    "Button16BackColor=" + Button16BackColor.R + "," + Button16BackColor.G + "," + Button16BackColor.B,
+                    "Button16ForeColor=" + Button16ForeColor.R + "," + Button16ForeColor.G + "," + Button16ForeColor.B,
+                    "CommandTextBoxBackColor=" + CommandTextBoxBackColor.R + "," + CommandTextBoxBackColor.G + "," + CommandTextBoxBackColor.B,
+                    "CommandTextBoxForeColor=" + CommandTextBoxForeColor.R + "," + CommandTextBoxForeColor.G + "," + CommandTextBoxForeColor.B,
+                    "DescriptionTextBoxBackColor=" + DescriptionTextBoxBackColor.R + "," + DescriptionTextBoxBackColor.G + "," + DescriptionTextBoxBackColor.B,
+                    "DescriptionTextBoxForeColor=" + DescriptionTextBoxForeColor.R + "," + DescriptionTextBoxForeColor.G + "," + DescriptionTextBoxForeColor.B,
+                    "TextBoxLabelBackColor=" + TextBoxLabelBackColor.R + "," + TextBoxLabelBackColor.G + "," + TextBoxLabelBackColor.B,
+                    "TextBoxLabelForeColor=" + TextBoxLabelForeColor.R + "," + TextBoxLabelForeColor.G + "," + TextBoxLabelForeColor.B,
+                    "PlusMinusEditButtonBackColor=" + PlusMinusEditButtonBackColor.R + "," + PlusMinusEditButtonBackColor.G + "," + PlusMinusEditButtonBackColor.B,
+                    "PlusMinusEditButtonForeColor=" + PlusMinusEditButtonForeColor.R + "," + PlusMinusEditButtonForeColor.G + "," + PlusMinusEditButtonForeColor.B,
+                    "PageNumberLabelBackColor=" + PageNumberLabelBackColor.R + "," + PageNumberLabelBackColor.G + "," + PageNumberLabelBackColor.B,
+                    "PageNumberLabelForeColor=" + PageNumberLabelForeColor.R + "," + PageNumberLabelForeColor.G + "," + PageNumberLabelForeColor.B,
+                    "PageDescriptionTextBoxBackColor=" + PageDescriptionTextBoxBackColor.R + "," + PageDescriptionTextBoxBackColor.G + "," + PageDescriptionTextBoxBackColor.B,
+                    "PageDescriptionTextBoxForeColor=" + PageDescriptionTextBoxForeColor.R + "," + PageDescriptionTextBoxForeColor.G + "," + PageDescriptionTextBoxForeColor.B,
+                    "FormBackColor=" + FormBackColor.R + "," + FormBackColor.G + "," + FormBackColor.B,
+                    "ControlBorderColor=" + ControlBorderColor.R + "," + ControlBorderColor.G + "," + ControlBorderColor.B
                 };
                 File.WriteAllLines(colorsFile, colorLines);
             }
@@ -297,7 +297,7 @@ namespace ButtonCommandBoard
             {
                 buttons[i] = new Button
                 {
-                    Text = ((currentPage - 1) * 16 + i + 1).ToString(),
+                    Text = Convert.ToString((currentPage - 1) * 16 + i + 1),
                     Tag = i,
                     FlatStyle = FlatStyle.Flat,
                     BackColor = buttonBackColors[i],
@@ -332,7 +332,7 @@ namespace ButtonCommandBoard
 
                 descriptionTextBoxes[i] = new TextBox
                 {
-                    Text = "Description " + ((currentPage - 1) * 16 + i + 1).ToString(),
+                    Text = "Description " + Convert.ToString((currentPage - 1) * 16 + i + 1),
                     Font = new Font("Arial", 10),
                     Width = 200,
                     BackColor = DescriptionTextBoxBackColor,
@@ -351,7 +351,7 @@ namespace ButtonCommandBoard
 
                 textBoxLabels[i] = new Label
                 {
-                    Text = ((currentPage - 1) * 16 + i + 1).ToString(),
+                    Text = Convert.ToString((currentPage - 1) * 16 + i + 1),
                     Font = new Font("Arial", 10, FontStyle.Bold),
                     AutoSize = true,
                     BackColor = TextBoxLabelBackColor,
@@ -398,7 +398,7 @@ namespace ButtonCommandBoard
 
             pageNumberLabel = new Label
             {
-                Text = currentPage.ToString(),
+                Text = Convert.ToString(currentPage),
                 Font = new Font("Arial", 12, FontStyle.Bold),
                 AutoSize = true,
                 BackColor = PageNumberLabelBackColor,
@@ -408,7 +408,7 @@ namespace ButtonCommandBoard
 
             pageDescriptionTextBox = new TextBox
             {
-                Text = "Page " + currentPage.ToString() + " Description",
+                Text = "Page " + Convert.ToString(currentPage) + " Description",
                 Font = new Font("Arial", 10),
                 Width = 200,
                 BackColor = PageDescriptionTextBoxBackColor,
@@ -550,16 +550,16 @@ namespace ButtonCommandBoard
 
         private void UpdatePage()
         {
-            pageNumberLabel.Text = currentPage.ToString();
-            pageDescriptionTextBox.Text = "Page " + currentPage.ToString() + " Description";
+            pageNumberLabel.Text = Convert.ToString(currentPage);
+            pageDescriptionTextBox.Text = "Page " + Convert.ToString(currentPage) + " Description";
 
             for (int i = 0; i < 16; i++)
             {
                 int buttonNumber = (currentPage - 1) * 16 + i + 1;
-                buttons[i].Text = buttonNumber.ToString();
-                textBoxLabels[i].Text = buttonNumber.ToString();
+                buttons[i].Text = Convert.ToString(buttonNumber);
+                textBoxLabels[i].Text = Convert.ToString(buttonNumber);
                 commandTextBoxes[i].Text = "ipconfig /all";
-                descriptionTextBoxes[i].Text = "Description " + buttonNumber.ToString();
+                descriptionTextBoxes[i].Text = "Description " + Convert.ToString(buttonNumber);
             }
 
             LoadCommands();
@@ -756,10 +756,8 @@ namespace ButtonCommandBoard
                 return;
             }
 
-            btn.Enabled = false;
-
-            BackgroundWorker worker = new BackgroundWorker();
-            worker.DoWork += (s, args) =>
+            // Run the command asynchronously
+            System.Threading.Tasks.Task.Factory.StartNew(() =>
             {
                 try
                 {
@@ -786,7 +784,7 @@ namespace ButtonCommandBoard
                             Arguments = arguments,
                             UseShellExecute = true,
                             CreateNoWindow = false,
-                            Verb = "runas"
+                            Verb = isSFC ? "runas" : ""
                         };
                     }
                     else
@@ -804,55 +802,46 @@ namespace ButtonCommandBoard
 
                     using (Process process = new Process { StartInfo = psi })
                     {
-                        process.Start();
-                        string result;
-
-                        if (isSFC || isPowerShellScript)
+                        if (!(isSFC || isPowerShellScript))
                         {
+                            // For non-SFC and non-PowerShell commands, capture output
+                            string output = "";
+                            string error = "";
+                            process.OutputDataReceived += (s, args) => { if (args.Data != null) output += args.Data + Environment.NewLine; };
+                            process.ErrorDataReceived += (s, args) => { if (args.Data != null) error += args.Data + Environment.NewLine; };
+
+                            process.Start();
+                            process.BeginOutputReadLine();
+                            process.BeginErrorReadLine();
+
                             process.WaitForExit();
-                            result = "Command executed in external window.";
+
+                            string result = string.IsNullOrEmpty(error) ? output : "Error: " + error;
+
+                            if (!string.IsNullOrEmpty(result))
+                            {
+                                this.Invoke((MethodInvoker)delegate
+                                {
+                                    MessageBox.Show(result, "Output of Command " + Convert.ToString((currentPage - 1) * 16 + index + 1),
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                });
+                            }
                         }
                         else
                         {
-                            string output = process.StandardOutput.ReadToEnd();
-                            string error = process.StandardError.ReadToEnd();
-                            process.WaitForExit();
-                            result = string.IsNullOrEmpty(error) ? output : "Error: " + error;
+                            // For SFC or PowerShell, just start the process
+                            process.Start();
                         }
-
-                        args.Result = new Tuple<string, int, bool>(result, index, true);
                     }
                 }
                 catch (Exception ex)
                 {
-                    args.Result = new Tuple<string, int, bool>("Error: " + ex.Message, index, false);
-                }
-            };
-
-            worker.RunWorkerCompleted += (s, args) =>
-            {
-                Tuple<string, int, bool> result = (Tuple<string, int, bool>)args.Result;
-                string output = result.Item1;
-                int resultIndex = result.Item2;
-                bool success = result.Item3;
-
-                btn.Enabled = true;
-
-                if (success && !string.IsNullOrEmpty(output))
-                {
-                    if (!(cmd.ToLower().Contains("sfc") || cmd.ToLower().Contains("scannow") || cmd.ToLower().EndsWith(".ps1")))
+                    this.Invoke((MethodInvoker)delegate
                     {
-                        MessageBox.Show(output, "Output of Command " + ((currentPage - 1) * 16 + resultIndex + 1).ToString(),
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                        MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    });
                 }
-                else if (!success)
-                {
-                    MessageBox.Show(output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            };
-
-            worker.RunWorkerAsync();
+            });
         }
 
         private string ResolveCommand(string cmd)
@@ -891,482 +880,480 @@ namespace ButtonCommandBoard
         }
     }
 
-   public class ColorPaletteForm : Form
-{
-    private CommandBoard parentForm;
-    private Panel colorGrid;
-    private TrackBar brightnessBar;
-    private Label selectedColorLabel;
-    private Button okButton;
-    private Button cancelButton;
-    private Button[] colorVariableButtons;
-    private TextBox redTextBox;
-    private TextBox greenTextBox;
-    private TextBox blueTextBox;
-    private Label redLabel;
-    private Label greenLabel;
-    private Label blueLabel;
-    private int selectedVariableIndex = -1;
-    private Color selectedColor;
-
-    public Color Button1BackColor, Button1ForeColor, Button2BackColor, Button2ForeColor,
-        Button3BackColor, Button3ForeColor, Button4BackColor, Button4ForeColor,
-        Button5BackColor, Button5ForeColor, Button6BackColor, Button6ForeColor,
-        Button7BackColor, Button7ForeColor, Button8BackColor, Button8ForeColor,
-        Button9BackColor, Button9ForeColor, Button10BackColor, Button10ForeColor,
-        Button11BackColor, Button11ForeColor, Button12BackColor, Button12ForeColor,
-        Button13BackColor, Button13ForeColor, Button14BackColor, Button14ForeColor,
-        Button15BackColor, Button15ForeColor, Button16BackColor, Button16ForeColor,
-        CommandTextBoxBackColor, CommandTextBoxForeColor, DescriptionTextBoxBackColor, DescriptionTextBoxForeColor,
-        TextBoxLabelBackColor, TextBoxLabelForeColor, PlusMinusEditButtonBackColor, PlusMinusEditButtonForeColor,
-        PageNumberLabelBackColor, PageNumberLabelForeColor, PageDescriptionTextBoxBackColor, PageDescriptionTextBoxForeColor,
-        FormBackColor, ControlBorderColor;
-
-    public ColorPaletteForm(CommandBoard parent)
+    public class ColorPaletteForm : Form
     {
-        parentForm = parent;
-        InitializeColors();
-        InitializeComponents();
-    }
+        private CommandBoard parentForm;
+        private Panel colorGrid;
+        private TrackBar brightnessBar;
+        private Label selectedColorLabel;
+        private Button okButton;
+        private Button cancelButton;
+        private Button[] colorVariableButtons;
+        private TextBox redTextBox;
+        private TextBox greenTextBox;
+        private TextBox blueTextBox;
+        private Label redLabel;
+        private Label greenLabel;
+        private Label blueLabel;
+        private int selectedVariableIndex = -1;
+        private Color selectedColor;
 
-    private void InitializeColors()
-    {
-        Button1BackColor = parentForm.Button1BackColor;
-        Button1ForeColor = parentForm.Button1ForeColor;
-        Button2BackColor = parentForm.Button2BackColor;
-        Button2ForeColor = parentForm.Button2ForeColor;
-        Button3BackColor = parentForm.Button3BackColor;
-        Button3ForeColor = parentForm.Button3ForeColor;
-        Button4BackColor = parentForm.Button4BackColor;
-        Button4ForeColor = parentForm.Button4ForeColor;
-        Button5BackColor = parentForm.Button5BackColor;
-        Button5ForeColor = parentForm.Button5ForeColor;
-        Button6BackColor = parentForm.Button6BackColor;
-        Button6ForeColor = parentForm.Button6ForeColor;
-        Button7BackColor = parentForm.Button7BackColor;
-        Button7ForeColor = parentForm.Button7ForeColor;
-        Button8BackColor = parentForm.Button8BackColor;
-        Button8ForeColor = parentForm.Button8ForeColor;
-        Button9BackColor = parentForm.Button9BackColor;
-        Button9ForeColor = parentForm.Button9ForeColor;
-        Button10BackColor = parentForm.Button10BackColor;
-        Button10ForeColor = parentForm.Button10ForeColor;
-        Button11BackColor = parentForm.Button11BackColor;
-        Button11ForeColor = parentForm.Button11ForeColor;
-        Button12BackColor = parentForm.Button12BackColor;
-        Button12ForeColor = parentForm.Button12ForeColor;
-        Button13BackColor = parentForm.Button13BackColor;
-        Button13ForeColor = parentForm.Button13ForeColor;
-        Button14BackColor = parentForm.Button14BackColor;
-        Button14ForeColor = parentForm.Button14ForeColor;
-        Button15BackColor = parentForm.Button15BackColor;
-        Button15ForeColor = parentForm.Button15ForeColor;
-        Button16BackColor = parentForm.Button16BackColor;
-        Button16ForeColor = parentForm.Button16ForeColor;
-        CommandTextBoxBackColor = parentForm.CommandTextBoxBackColor;
-        CommandTextBoxForeColor = parentForm.CommandTextBoxForeColor;
-        DescriptionTextBoxBackColor = parentForm.DescriptionTextBoxBackColor;
-        DescriptionTextBoxForeColor = parentForm.DescriptionTextBoxForeColor;
-        TextBoxLabelBackColor = parentForm.TextBoxLabelBackColor;
-        TextBoxLabelForeColor = parentForm.TextBoxLabelForeColor;
-        PlusMinusEditButtonBackColor = parentForm.PlusMinusEditButtonBackColor;
-        PlusMinusEditButtonForeColor = parentForm.PlusMinusEditButtonForeColor;
-        PageNumberLabelBackColor = parentForm.PageNumberLabelBackColor;
-        PageNumberLabelForeColor = parentForm.PageNumberLabelForeColor;
-        PageDescriptionTextBoxBackColor = parentForm.PageDescriptionTextBoxBackColor;
-        PageDescriptionTextBoxForeColor = parentForm.PageDescriptionTextBoxForeColor;
-        FormBackColor = parentForm.FormBackColor;
-        ControlBorderColor = parentForm.ControlBorderColor;
-    }
+        public Color Button1BackColor, Button1ForeColor, Button2BackColor, Button2ForeColor,
+            Button3BackColor, Button3ForeColor, Button4BackColor, Button4ForeColor,
+            Button5BackColor, Button5ForeColor, Button6BackColor, Button6ForeColor,
+            Button7BackColor, Button7ForeColor, Button8BackColor, Button8ForeColor,
+            Button9BackColor, Button9ForeColor, Button10BackColor, Button10ForeColor,
+            Button11BackColor, Button11ForeColor, Button12BackColor, Button12ForeColor,
+            Button13BackColor, Button13ForeColor, Button14BackColor, Button14ForeColor,
+            Button15BackColor, Button15ForeColor, Button16BackColor, Button16ForeColor,
+            CommandTextBoxBackColor, CommandTextBoxForeColor, DescriptionTextBoxBackColor, DescriptionTextBoxForeColor,
+            TextBoxLabelBackColor, TextBoxLabelForeColor, PlusMinusEditButtonBackColor, PlusMinusEditButtonForeColor,
+            PageNumberLabelBackColor, PageNumberLabelForeColor, PageDescriptionTextBoxBackColor, PageDescriptionTextBoxForeColor,
+            FormBackColor, ControlBorderColor;
 
-    private void InitializeComponents()
-    {
-        this.Text = "Color Palette Selector";
-        this.Size = new Size(650, 500); // Increased width to accommodate RGB inputs
-        this.FormBorderStyle = FormBorderStyle.FixedDialog;
-        this.MaximizeBox = false;
-        this.MinimizeBox = false;
-        this.StartPosition = FormStartPosition.CenterParent;
-
-        string[] variableNames = new string[]
+        public ColorPaletteForm(CommandBoard parent)
         {
-            "Button1BackColor", "Button1ForeColor", "Button2BackColor", "Button2ForeColor",
-            "Button3BackColor", "Button3ForeColor", "Button4BackColor", "Button4ForeColor",
-            "Button5BackColor", "Button5ForeColor", "Button6BackColor", "Button6ForeColor",
-            "Button7BackColor", "Button7ForeColor", "Button8BackColor", "Button8ForeColor",
-            "Button9BackColor", "Button9ForeColor", "Button10BackColor", "Button10ForeColor",
-            "Button11BackColor", "Button11ForeColor", "Button12BackColor", "Button12ForeColor",
-            "Button13BackColor", "Button13ForeColor", "Button14BackColor", "Button14ForeColor",
-            "Button15BackColor", "Button15ForeColor", "Button16BackColor", "Button16ForeColor",
-            "CommandTextBoxBackColor", "CommandTextBoxForeColor",
-            "DescriptionTextBoxBackColor", "DescriptionTextBoxForeColor",
-            "TextBoxLabelBackColor", "TextBoxLabelForeColor",
-            "PlusMinusEditButtonBackColor", "PlusMinusEditButtonForeColor",
-            "PageNumberLabelBackColor", "PageNumberLabelForeColor",
-            "PageDescriptionTextBoxBackColor", "PageDescriptionTextBoxForeColor",
-            "FormBackColor", "ControlBorderColor"
-        };
-        colorVariableButtons = new Button[variableNames.Length];
-        Panel leftPanel = new Panel
-        {
-            Location = new Point(10, 10),
-            Size = new Size(150, 400),
-            AutoScroll = true,
-            BorderStyle = BorderStyle.FixedSingle
-        };
-        int buttonHeight = 30;
-        int buttonSpacing = 35;
-        int totalContentHeight = variableNames.Length * buttonSpacing + 10;
-        for (int i = 0; i < variableNames.Length; i++)
-        {
-            colorVariableButtons[i] = new Button
-            {
-                Text = variableNames[i],
-                Size = new Size(130, buttonHeight),
-                Location = new Point(10, 10 + i * buttonSpacing),
-                Tag = i
-            };
-            colorVariableButtons[i].Click += VariableButton_Click;
-            leftPanel.Controls.Add(colorVariableButtons[i]);
+            parentForm = parent;
+            InitializeColors();
+            InitializeComponents();
         }
-        leftPanel.AutoScrollMinSize = new Size(0, totalContentHeight);
-        this.Controls.Add(leftPanel);
 
-        colorGrid = new Panel { Location = new Point(170, 10), Size = new Size(240, 240) };
-        int gridRows = 8, gridCols = 8;
-        for (int row = 0; row < gridRows; row++)
+        private void InitializeColors()
         {
-            for (int col = 0; col < gridCols; col++)
+            Button1BackColor = parentForm.Button1BackColor;
+            Button1ForeColor = parentForm.Button1ForeColor;
+            Button2BackColor = parentForm.Button2BackColor;
+            Button2ForeColor = parentForm.Button2ForeColor;
+            Button3BackColor = parentForm.Button3BackColor;
+            Button3ForeColor = parentForm.Button3ForeColor;
+            Button4BackColor = parentForm.Button4BackColor;
+            Button4ForeColor = parentForm.Button4ForeColor;
+            Button5BackColor = parentForm.Button5BackColor;
+            Button5ForeColor = parentForm.Button5ForeColor;
+            Button6BackColor = parentForm.Button6BackColor;
+            Button6ForeColor = parentForm.Button6ForeColor;
+            Button7BackColor = parentForm.Button7BackColor;
+            Button7ForeColor = parentForm.Button7ForeColor;
+            Button8BackColor = parentForm.Button8BackColor;
+            Button8ForeColor = parentForm.Button8ForeColor;
+            Button9BackColor = parentForm.Button9BackColor;
+            Button9ForeColor = parentForm.Button9ForeColor;
+            Button10BackColor = parentForm.Button10BackColor;
+            Button10ForeColor = parentForm.Button10ForeColor;
+            Button11BackColor = parentForm.Button11BackColor;
+            Button11ForeColor = parentForm.Button11ForeColor;
+            Button12BackColor = parentForm.Button12BackColor;
+            Button12ForeColor = parentForm.Button12ForeColor;
+            Button13BackColor = parentForm.Button13BackColor;
+            Button13ForeColor = parentForm.Button13ForeColor;
+            Button14BackColor = parentForm.Button14BackColor;
+            Button14ForeColor = parentForm.Button14ForeColor;
+            Button15BackColor = parentForm.Button15BackColor;
+            Button15ForeColor = parentForm.Button15ForeColor;
+            Button16BackColor = parentForm.Button16BackColor;
+            Button16ForeColor = parentForm.Button16ForeColor;
+            CommandTextBoxBackColor = parentForm.CommandTextBoxBackColor;
+            CommandTextBoxForeColor = parentForm.CommandTextBoxForeColor;
+            DescriptionTextBoxBackColor = parentForm.DescriptionTextBoxBackColor;
+            DescriptionTextBoxForeColor = parentForm.DescriptionTextBoxForeColor;
+            TextBoxLabelBackColor = parentForm.TextBoxLabelBackColor;
+            TextBoxLabelForeColor = parentForm.TextBoxLabelForeColor;
+            PlusMinusEditButtonBackColor = parentForm.PlusMinusEditButtonBackColor;
+            PlusMinusEditButtonForeColor = parentForm.PlusMinusEditButtonForeColor;
+            PageNumberLabelBackColor = parentForm.PageNumberLabelBackColor;
+            PageNumberLabelForeColor = parentForm.PageNumberLabelForeColor;
+            PageDescriptionTextBoxBackColor = parentForm.PageDescriptionTextBoxBackColor;
+            PageDescriptionTextBoxForeColor = parentForm.PageDescriptionTextBoxForeColor;
+            FormBackColor = parentForm.FormBackColor;
+            ControlBorderColor = parentForm.ControlBorderColor;
+        }
+
+        private void InitializeComponents()
+        {
+            this.Text = "Color Palette Selector";
+            this.Size = new Size(650, 500);
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterParent;
+
+            string[] variableNames = new string[]
             {
-                float hue = (col / (float)gridCols) * 360f;
-                float saturation = 1f;
-                float lightness = (row / (float)gridRows) * 0.8f + 0.2f;
-                Color color = HSLToRGB(hue, saturation, lightness);
-                Panel swatch = new Panel
+                "Button1BackColor", "Button1ForeColor", "Button2BackColor", "Button2ForeColor",
+                "Button3BackColor", "Button3ForeColor", "Button4BackColor", "Button4ForeColor",
+                "Button5BackColor", "Button5ForeColor", "Button6BackColor", "Button6ForeColor",
+                "Button7BackColor", "Button7ForeColor", "Button8BackColor", "Button8ForeColor",
+                "Button9BackColor", "Button9ForeColor", "Button10BackColor", "Button10ForeColor",
+                "Button11BackColor", "Button11ForeColor", "Button12BackColor", "Button12ForeColor",
+                "Button13BackColor", "Button13ForeColor", "Button14BackColor", "Button14ForeColor",
+                "Button15BackColor", "Button15ForeColor", "Button16BackColor", "Button16ForeColor",
+                "CommandTextBoxBackColor", "CommandTextBoxForeColor",
+                "DescriptionTextBoxBackColor", "DescriptionTextBoxForeColor",
+                "TextBoxLabelBackColor", "TextBoxLabelForeColor",
+                "PlusMinusEditButtonBackColor", "PlusMinusEditButtonForeColor",
+                "PageNumberLabelBackColor", "PageNumberLabelForeColor",
+                "PageDescriptionTextBoxBackColor", "PageDescriptionTextBoxForeColor",
+                "FormBackColor", "ControlBorderColor"
+            };
+            colorVariableButtons = new Button[variableNames.Length];
+            Panel leftPanel = new Panel
+            {
+                Location = new Point(10, 10),
+                Size = new Size(150, 400),
+                AutoScroll = true,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            int buttonHeight = 30;
+            int buttonSpacing = 35;
+            int totalContentHeight = variableNames.Length * buttonSpacing + 10;
+            for (int i = 0; i < variableNames.Length; i++)
+            {
+                colorVariableButtons[i] = new Button
                 {
-                    Size = new Size(30, 30),
-                    Location = new Point(col * 30, row * 30),
-                    BackColor = color,
-                    BorderStyle = BorderStyle.FixedSingle,
-                    Tag = color
+                    Text = variableNames[i],
+                    Size = new Size(130, buttonHeight),
+                    Location = new Point(10, 10 + i * buttonSpacing),
+                    Tag = i
                 };
-                swatch.Click += ColorSwatch_Click;
-                colorGrid.Controls.Add(swatch);
+                colorVariableButtons[i].Click += VariableButton_Click;
+                leftPanel.Controls.Add(colorVariableButtons[i]);
+            }
+            leftPanel.AutoScrollMinSize = new Size(0, totalContentHeight);
+            this.Controls.Add(leftPanel);
+
+            colorGrid = new Panel { Location = new Point(170, 10), Size = new Size(240, 240) };
+            int gridRows = 8, gridCols = 8;
+            for (int row = 0; row < gridRows; row++)
+            {
+                for (int col = 0; col < gridCols; col++)
+                {
+                    float hue = (col / (float)gridCols) * 360f;
+                    float saturation = 1f;
+                    float lightness = (row / (float)gridRows) * 0.8f + 0.2f;
+                    Color color = HSLToRGB(hue, saturation, lightness);
+                    Panel swatch = new Panel
+                    {
+                        Size = new Size(30, 30),
+                        Location = new Point(col * 30, row * 30),
+                        BackColor = color,
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Tag = color
+                    };
+                    swatch.Click += ColorSwatch_Click;
+                    colorGrid.Controls.Add(swatch);
+                }
+            }
+            this.Controls.Add(colorGrid);
+
+            redLabel = new Label
+            {
+                Text = "R:",
+                Location = new Point(420, 10),
+                Size = new Size(30, 20),
+                TextAlign = ContentAlignment.MiddleRight
+            };
+            this.Controls.Add(redLabel);
+
+            redTextBox = new TextBox
+            {
+                Location = new Point(450, 10),
+                Size = new Size(50, 20),
+                Text = "255"
+            };
+            redTextBox.TextChanged += RGBTextBox_TextChanged;
+            this.Controls.Add(redTextBox);
+
+            greenLabel = new Label
+            {
+                Text = "G:",
+                Location = new Point(420, 40),
+                Size = new Size(30, 20),
+                TextAlign = ContentAlignment.MiddleRight
+            };
+            this.Controls.Add(greenLabel);
+
+            greenTextBox = new TextBox
+            {
+                Location = new Point(450, 40),
+                Size = new Size(50, 20),
+                Text = "255"
+            };
+            greenTextBox.TextChanged += RGBTextBox_TextChanged;
+            this.Controls.Add(greenTextBox);
+
+            blueLabel = new Label
+            {
+                Text = "B:",
+                Location = new Point(420, 70),
+                Size = new Size(30, 20),
+                TextAlign = ContentAlignment.MiddleRight
+            };
+            this.Controls.Add(blueLabel);
+
+            blueTextBox = new TextBox
+            {
+                Location = new Point(450, 70),
+                Size = new Size(50, 20),
+                Text = "255"
+            };
+            blueTextBox.TextChanged += RGBTextBox_TextChanged;
+            this.Controls.Add(blueTextBox);
+
+            brightnessBar = new TrackBar
+            {
+                Location = new Point(170, 260),
+                Size = new Size(240, 45),
+                Minimum = 0,
+                Maximum = 100,
+                Value = 100,
+                TickFrequency = 10
+            };
+            brightnessBar.Scroll += BrightnessBar_Scroll;
+            this.Controls.Add(brightnessBar);
+
+            selectedColorLabel = new Label
+            {
+                Location = new Point(170, 310),
+                Size = new Size(100, 30),
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.Black
+            };
+            this.Controls.Add(selectedColorLabel);
+
+            okButton = new Button
+            {
+                Text = "OK",
+                Location = new Point(170, 350),
+                Size = new Size(75, 30),
+                DialogResult = DialogResult.OK
+            };
+            okButton.Click += (s, e) => this.Close();
+            this.Controls.Add(okButton);
+
+            cancelButton = new Button
+            {
+                Text = "Cancel",
+                Location = new Point(255, 350),
+                Size = new Size(75, 30),
+                DialogResult = DialogResult.Cancel
+            };
+            cancelButton.Click += (s, e) => this.Close();
+            this.Controls.Add(cancelButton);
+        }
+
+        private void VariableButton_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            selectedVariableIndex = (int)btn.Tag;
+            if (selectedVariableIndex >= 0)
+            {
+                Color currentColor = GetColorByIndex(selectedVariableIndex);
+                redTextBox.Text = Convert.ToString(currentColor.R);
+                greenTextBox.Text = Convert.ToString(currentColor.G);
+                blueTextBox.Text = Convert.ToString(currentColor.B);
+                selectedColor = currentColor;
+                UpdateSelectedColor();
             }
         }
-        this.Controls.Add(colorGrid);
 
-        // Add RGB input labels and text boxes
-        redLabel = new Label
+        private void ColorSwatch_Click(object sender, EventArgs e)
         {
-            Text = "R:",
-            Location = new Point(420, 10),
-            Size = new Size(30, 20),
-            TextAlign = ContentAlignment.MiddleRight
-        };
-        this.Controls.Add(redLabel);
+            if (selectedVariableIndex == -1)
+            {
+                MessageBox.Show("Please select a color variable first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        redTextBox = new TextBox
-        {
-            Location = new Point(450, 10),
-            Size = new Size(50, 20),
-            Text = "255"
-        };
-        redTextBox.TextChanged += RGBTextBox_TextChanged;
-        this.Controls.Add(redTextBox);
-
-        greenLabel = new Label
-        {
-            Text = "G:",
-            Location = new Point(420, 40),
-            Size = new Size(30, 20),
-            TextAlign = ContentAlignment.MiddleRight
-        };
-        this.Controls.Add(greenLabel);
-
-        greenTextBox = new TextBox
-        {
-            Location = new Point(450, 40),
-            Size = new Size(50, 20),
-            Text = "255"
-        };
-        greenTextBox.TextChanged += RGBTextBox_TextChanged;
-        this.Controls.Add(greenTextBox);
-
-        blueLabel = new Label
-        {
-            Text = "B:",
-            Location = new Point(420, 70),
-            Size = new Size(30, 20),
-            TextAlign = ContentAlignment.MiddleRight
-        };
-        this.Controls.Add(blueLabel);
-
-        blueTextBox = new TextBox
-        {
-            Location = new Point(450, 70),
-            Size = new Size(50, 20),
-            Text = "255"
-        };
-        blueTextBox.TextChanged += RGBTextBox_TextChanged;
-        this.Controls.Add(blueTextBox);
-
-        brightnessBar = new TrackBar
-        {
-            Location = new Point(170, 260),
-            Size = new Size(240, 45),
-            Minimum = 0,
-            Maximum = 100,
-            Value = 100,
-            TickFrequency = 10
-        };
-        brightnessBar.Scroll += BrightnessBar_Scroll;
-        this.Controls.Add(brightnessBar);
-
-        selectedColorLabel = new Label
-        {
-            Location = new Point(170, 310),
-            Size = new Size(100, 30),
-            BorderStyle = BorderStyle.FixedSingle,
-            BackColor = Color.Black
-        };
-        this.Controls.Add(selectedColorLabel);
-
-        okButton = new Button
-        {
-            Text = "OK",
-            Location = new Point(170, 350),
-            Size = new Size(75, 30),
-            DialogResult = DialogResult.OK
-        };
-        okButton.Click += (s, e) => this.Close();
-        this.Controls.Add(okButton);
-
-        cancelButton = new Button
-        {
-            Text = "Cancel",
-            Location = new Point(255, 350),
-            Size = new Size(75, 30),
-            DialogResult = DialogResult.Cancel
-        };
-        cancelButton.Click += (s, e) => this.Close();
-        this.Controls.Add(cancelButton);
-    }
-
-    private void VariableButton_Click(object sender, EventArgs e)
-    {
-        Button btn = (Button)sender;
-        selectedVariableIndex = (int)btn.Tag;
-        // Update RGB text boxes with current color values
-        if (selectedVariableIndex >= 0)
-        {
-            Color currentColor = GetColorByIndex(selectedVariableIndex);
-            redTextBox.Text = currentColor.R.ToString();
-            greenTextBox.Text = currentColor.G.ToString();
-            blueTextBox.Text = currentColor.B.ToString();
-            selectedColor = currentColor;
-            UpdateSelectedColor();
-        }
-    }
-
-    private void ColorSwatch_Click(object sender, EventArgs e)
-    {
-        if (selectedVariableIndex == -1)
-        {
-            MessageBox.Show("Please select a color variable first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
-
-        Panel swatch = (Panel)sender;
-        selectedColor = (Color)swatch.Tag;
-        redTextBox.Text = selectedColor.R.ToString();
-        greenTextBox.Text = selectedColor.G.ToString();
-        blueTextBox.Text = selectedColor.B.ToString();
-        UpdateSelectedColor();
-        AssignSelectedColor();
-    }
-
-    private void RGBTextBox_TextChanged(object sender, EventArgs e)
-    {
-        if (selectedVariableIndex == -1)
-        {
-            return;
-        }
-
-        int r, g, b;
-        bool validR = int.TryParse(redTextBox.Text, out r) && r >= 0 && r <= 255;
-        bool validG = int.TryParse(greenTextBox.Text, out g) && g >= 0 && g <= 255;
-        bool validB = int.TryParse(blueTextBox.Text, out b) && b >= 0 && b <= 255;
-
-        if (validR && validG && validB)
-        {
-            selectedColor = Color.FromArgb(r, g, b);
+            Panel swatch = (Panel)sender;
+            selectedColor = (Color)swatch.Tag;
+            redTextBox.Text = Convert.ToString(selectedColor.R);
+            greenTextBox.Text = Convert.ToString(selectedColor.G);
+            blueTextBox.Text = Convert.ToString(selectedColor.B);
             UpdateSelectedColor();
             AssignSelectedColor();
         }
-    }
 
-    private void BrightnessBar_Scroll(object sender, EventArgs e)
-    {
-        if (selectedVariableIndex != -1)
+        private void RGBTextBox_TextChanged(object sender, EventArgs e)
         {
-            UpdateSelectedColor();
-            AssignSelectedColor();
+            if (selectedVariableIndex == -1)
+            {
+                return;
+            }
+
+            int r, g, b;
+            bool validR = int.TryParse(redTextBox.Text, out r) && r >= 0 && r <= 255;
+            bool validG = int.TryParse(greenTextBox.Text, out g) && g >= 0 && g <= 255;
+            bool validB = int.TryParse(blueTextBox.Text, out b) && b >= 0 && b <= 255;
+
+            if (validR && validG && validB)
+            {
+                selectedColor = Color.FromArgb(r, g, b);
+                UpdateSelectedColor();
+                AssignSelectedColor();
+            }
+        }
+
+        private void BrightnessBar_Scroll(object sender, EventArgs e)
+        {
+            if (selectedVariableIndex != -1)
+            {
+                UpdateSelectedColor();
+                AssignSelectedColor();
+            }
+        }
+
+        private void UpdateSelectedColor()
+        {
+            float brightness = brightnessBar.Value / 100f;
+            int r = (int)(selectedColor.R * brightness);
+            int g = (int)(selectedColor.G * brightness);
+            int b = (int)(selectedColor.B * brightness);
+            Color adjustedColor = Color.FromArgb(r, g, b);
+            selectedColorLabel.BackColor = adjustedColor;
+        }
+
+        private void AssignSelectedColor()
+        {
+            float brightness = brightnessBar.Value / 100f;
+            int r = (int)(selectedColor.R * brightness);
+            int g = (int)(selectedColor.G * brightness);
+            int b = (int)(selectedColor.B * brightness);
+            Color adjustedColor = Color.FromArgb(r, g, b);
+
+            switch (selectedVariableIndex)
+            {
+                case 0: Button1BackColor = adjustedColor; break;
+                case 1: Button1ForeColor = adjustedColor; break;
+                case 2: Button2BackColor = adjustedColor; break;
+                case 3: Button2ForeColor = adjustedColor; break;
+                case 4: Button3BackColor = adjustedColor; break;
+                case 5: Button3ForeColor = adjustedColor; break;
+                case 6: Button4BackColor = adjustedColor; break;
+                case 7: Button4ForeColor = adjustedColor; break;
+                case 8: Button5BackColor = adjustedColor; break;
+                case 9: Button5ForeColor = adjustedColor; break;
+                case 10: Button6BackColor = adjustedColor; break;
+                case 11: Button6ForeColor = adjustedColor; break;
+                case 12: Button7BackColor = adjustedColor; break;
+                case 13: Button7ForeColor = adjustedColor; break;
+                case 14: Button8BackColor = adjustedColor; break;
+                case 15: Button8ForeColor = adjustedColor; break;
+                case 16: Button9BackColor = adjustedColor; break;
+                case 17: Button9ForeColor = adjustedColor; break;
+                case 18: Button10BackColor = adjustedColor; break;
+                case 19: Button10ForeColor = adjustedColor; break;
+                case 20: Button11BackColor = adjustedColor; break;
+                case 21: Button11ForeColor = adjustedColor; break;
+                case 22: Button12BackColor = adjustedColor; break;
+                case 23: Button12ForeColor = adjustedColor; break;
+                case 24: Button13BackColor = adjustedColor; break;
+                case 25: Button13ForeColor = adjustedColor; break;
+                case 26: Button14BackColor = adjustedColor; break;
+                case 27: Button14ForeColor = adjustedColor; break;
+                case 28: Button15BackColor = adjustedColor; break;
+                case 29: Button15ForeColor = adjustedColor; break;
+                case 30: Button16BackColor = adjustedColor; break;
+                case 31: Button16ForeColor = adjustedColor; break;
+                case 32: CommandTextBoxBackColor = adjustedColor; break;
+                case 33: CommandTextBoxForeColor = adjustedColor; break;
+                case 34: DescriptionTextBoxBackColor = adjustedColor; break;
+                case 35: DescriptionTextBoxForeColor = adjustedColor; break;
+                case 36: TextBoxLabelBackColor = adjustedColor; break;
+                case 37: TextBoxLabelForeColor = adjustedColor; break;
+                case 38: PlusMinusEditButtonBackColor = adjustedColor; break;
+                case 39: PlusMinusEditButtonForeColor = adjustedColor; break;
+                case 40: PageNumberLabelBackColor = adjustedColor; break;
+                case 41: PageNumberLabelForeColor = adjustedColor; break;
+                case 42: PageDescriptionTextBoxBackColor = adjustedColor; break;
+                case 43: PageDescriptionTextBoxForeColor = adjustedColor; break;
+                case 44: FormBackColor = adjustedColor; break;
+                case 45: ControlBorderColor = adjustedColor; break;
+            }
+        }
+
+        private Color GetColorByIndex(int index)
+        {
+            switch (index)
+            {
+                case 0: return Button1BackColor;
+                case 1: return Button1ForeColor;
+                case 2: return Button2BackColor;
+                case 3: return Button2ForeColor;
+                case 4: return Button3BackColor;
+                case 5: return Button3ForeColor;
+                case 6: return Button4BackColor;
+                case 7: return Button4ForeColor;
+                case 8: return Button5BackColor;
+                case 9: return Button5ForeColor;
+                case 10: return Button6BackColor;
+                case 11: return Button6ForeColor;
+                case 12: return Button7BackColor;
+                case 13: return Button7ForeColor;
+                case 14: return Button8BackColor;
+                case 15: return Button8ForeColor;
+                case 16: return Button9BackColor;
+                case 17: return Button9ForeColor;
+                case 18: return Button10BackColor;
+                case 19: return Button10ForeColor;
+                case 20: return Button11BackColor;
+                case 21: return Button11ForeColor;
+                case 22: return Button12BackColor;
+                case 23: return Button12ForeColor;
+                case 24: return Button13BackColor;
+                case 25: return Button13ForeColor;
+                case 26: return Button14BackColor;
+                case 27: return Button14ForeColor;
+                case 28: return Button15BackColor;
+                case 29: return Button15ForeColor;
+                case 30: return Button16BackColor;
+                case 31: return Button16ForeColor;
+                case 32: return CommandTextBoxBackColor;
+                case 33: return CommandTextBoxForeColor;
+                case 34: return DescriptionTextBoxBackColor;
+                case 35: return DescriptionTextBoxForeColor;
+                case 36: return TextBoxLabelBackColor;
+                case 37: return TextBoxLabelForeColor;
+                case 38: return PlusMinusEditButtonBackColor;
+                case 39: return PlusMinusEditButtonForeColor;
+                case 40: return PageNumberLabelBackColor;
+                case 41: return PageNumberLabelForeColor;
+                case 42: return PageDescriptionTextBoxBackColor;
+                case 43: return PageDescriptionTextBoxForeColor;
+                case 44: return FormBackColor;
+                case 45: return ControlBorderColor;
+                default: return Color.Black;
+            }
+        }
+
+        private Color HSLToRGB(float h, float s, float l)
+        {
+            float r, g, b;
+            if (s == 0)
+            {
+                r = g = b = l;
+            }
+            else
+            {
+                float q = l < 0.5f ? l * (1f + s) : l + s - l * s;
+                float p = 2f * l - q;
+                r = HueToRGB(p, q, h / 360f + 1f / 3f);
+                g = HueToRGB(p, q, h / 360f);
+                b = HueToRGB(p, q, h / 360f - 1f / 3f);
+            }
+            return Color.FromArgb(
+                Math.Max(0, Math.Min(255, (int)(r * 255f))),
+                Math.Max(0, Math.Min(255, (int)(g * 255f))),
+                Math.Max(0, Math.Min(255, (int)(b * 255f))));
+        }
+
+        private float HueToRGB(float p, float q, float t)
+        {
+            if (t < 0f) t += 1f;
+            if (t > 1f) t -= 1f;
+            if (t < 1f / 6f) return p + (q - p) * 6f * t;
+            if (t < 1f / 2f) return q;
+            if (t < 2f / 3f) return p + (q - p) * (2f / 3f - t) * 6f;
+            return p;
         }
     }
-
-    private void UpdateSelectedColor()
-    {
-        float brightness = brightnessBar.Value / 100f;
-        int r = (int)(selectedColor.R * brightness);
-        int g = (int)(selectedColor.G * brightness);
-        int b = (int)(selectedColor.B * brightness);
-        Color adjustedColor = Color.FromArgb(r, g, b);
-        selectedColorLabel.BackColor = adjustedColor;
-    }
-
-    private void AssignSelectedColor()
-    {
-        float brightness = brightnessBar.Value / 100f;
-        int r = (int)(selectedColor.R * brightness);
-        int g = (int)(selectedColor.G * brightness);
-        int b = (int)(selectedColor.B * brightness);
-        Color adjustedColor = Color.FromArgb(r, g, b);
-
-        switch (selectedVariableIndex)
-        {
-            case 0: Button1BackColor = adjustedColor; break;
-            case 1: Button1ForeColor = adjustedColor; break;
-            case 2: Button2BackColor = adjustedColor; break;
-            case 3: Button2ForeColor = adjustedColor; break;
-            case 4: Button3BackColor = adjustedColor; break;
-            case 5: Button3ForeColor = adjustedColor; break;
-            case 6: Button4BackColor = adjustedColor; break;
-            case 7: Button4ForeColor = adjustedColor; break;
-            case 8: Button5BackColor = adjustedColor; break;
-            case 9: Button5ForeColor = adjustedColor; break;
-            case 10: Button6BackColor = adjustedColor; break;
-            case 11: Button6ForeColor = adjustedColor; break;
-            case 12: Button7BackColor = adjustedColor; break;
-            case 13: Button7ForeColor = adjustedColor; break;
-            case 14: Button8BackColor = adjustedColor; break;
-            case 15: Button8ForeColor = adjustedColor; break;
-            case 16: Button9BackColor = adjustedColor; break;
-            case 17: Button9ForeColor = adjustedColor; break;
-            case 18: Button10BackColor = adjustedColor; break;
-            case 19: Button10ForeColor = adjustedColor; break;
-            case 20: Button11BackColor = adjustedColor; break;
-            case 21: Button11ForeColor = adjustedColor; break;
-            case 22: Button12BackColor = adjustedColor; break;
-            case 23: Button12ForeColor = adjustedColor; break;
-            case 24: Button13BackColor = adjustedColor; break;
-            case 25: Button13ForeColor = adjustedColor; break;
-            case 26: Button14BackColor = adjustedColor; break;
-            case 27: Button14ForeColor = adjustedColor; break;
-            case 28: Button15BackColor = adjustedColor; break;
-            case 29: Button15ForeColor = adjustedColor; break;
-            case 30: Button16BackColor = adjustedColor; break;
-            case 31: Button16ForeColor = adjustedColor; break;
-            case 32: CommandTextBoxBackColor = adjustedColor; break;
-            case 33: CommandTextBoxForeColor = adjustedColor; break;
-            case 34: DescriptionTextBoxBackColor = adjustedColor; break;
-            case 35: DescriptionTextBoxForeColor = adjustedColor; break;
-            case 36: TextBoxLabelBackColor = adjustedColor; break;
-            case 37: TextBoxLabelForeColor = adjustedColor; break;
-            case 38: PlusMinusEditButtonBackColor = adjustedColor; break;
-            case 39: PlusMinusEditButtonForeColor = adjustedColor; break;
-            case 40: PageNumberLabelBackColor = adjustedColor; break;
-            case 41: PageNumberLabelForeColor = adjustedColor; break;
-            case 42: PageDescriptionTextBoxBackColor = adjustedColor; break;
-            case 43: PageDescriptionTextBoxForeColor = adjustedColor; break;
-            case 44: FormBackColor = adjustedColor; break;
-            case 45: ControlBorderColor = adjustedColor; break;
-        }
-    }
-
-    private Color GetColorByIndex(int index)
-    {
-        switch (index)
-        {
-            case 0: return Button1BackColor;
-            case 1: return Button1ForeColor;
-            case 2: return Button2BackColor;
-            case 3: return Button2ForeColor;
-            case 4: return Button3BackColor;
-            case 5: return Button3ForeColor;
-            case 6: return Button4BackColor;
-            case 7: return Button4ForeColor;
-            case 8: return Button5BackColor;
-            case 9: return Button5ForeColor;
-            case 10: return Button6BackColor;
-            case 11: return Button6ForeColor;
-            case 12: return Button7BackColor;
-            case 13: return Button7ForeColor;
-            case 14: return Button8BackColor;
-            case 15: return Button8ForeColor;
-            case 16: return Button9BackColor;
-            case 17: return Button9ForeColor;
-            case 18: return Button10BackColor;
-            case 19: return Button10ForeColor;
-            case 20: return Button11BackColor;
-            case 21: return Button11ForeColor;
-            case 22: return Button12BackColor;
-            case 23: return Button12ForeColor;
-            case 24: return Button13BackColor;
-            case 25: return Button13ForeColor;
-            case 26: return Button14BackColor;
-            case 27: return Button14ForeColor;
-            case 28: return Button15BackColor;
-            case 29: return Button15ForeColor;
-            case 30: return Button16BackColor;
-            case 31: return Button16ForeColor;
-            case 32: return CommandTextBoxBackColor;
-            case 33: return CommandTextBoxForeColor;
-            case 34: return DescriptionTextBoxBackColor;
-            case 35: return DescriptionTextBoxForeColor;
-            case 36: return TextBoxLabelBackColor;
-            case 37: return TextBoxLabelForeColor;
-            case 38: return PlusMinusEditButtonBackColor;
-            case 39: return PlusMinusEditButtonForeColor;
-            case 40: return PageNumberLabelBackColor;
-            case 41: return PageNumberLabelForeColor;
-            case 42: return PageDescriptionTextBoxBackColor;
-            case 43: return PageDescriptionTextBoxForeColor;
-            case 44: return FormBackColor;
-            case 45: return ControlBorderColor;
-            default: return Color.Black;
-        }
-    }
-
-    private Color HSLToRGB(float h, float s, float l)
-    {
-        float r, g, b;
-        if (s == 0)
-        {
-            r = g = b = l;
-        }
-        else
-        {
-            float q = l < 0.5f ? l * (1f + s) : l + s - l * s;
-            float p = 2f * l - q;
-            r = HueToRGB(p, q, h / 360f + 1f / 3f);
-            g = HueToRGB(p, q, h / 360f);
-            b = HueToRGB(p, q, h / 360f - 1f / 3f);
-        }
-        return Color.FromArgb(
-            Math.Max(0, Math.Min(255, (int)(r * 255f))),
-            Math.Max(0, Math.Min(255, (int)(g * 255f))),
-            Math.Max(0, Math.Min(255, (int)(b * 255f))));
-    }
-
-    private float HueToRGB(float p, float q, float t)
-    {
-        if (t < 0f) t += 1f;
-        if (t > 1f) t -= 1f;
-        if (t < 1f / 6f) return p + (q - p) * 6f * t;
-        if (t < 1f / 2f) return q;
-        if (t < 2f / 3f) return p + (q - p) * (2f / 3f - t) * 6f;
-        return p;
-    }
-  }
 }
