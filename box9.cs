@@ -727,7 +727,7 @@ private void SaveColors()
 
         private void LayoutControls()
         {
-            int margin = 15;
+            int margin = 7;
             int gridSize = 4;
             int buttonSize = 70;
             int buttonSpacing = 10;
