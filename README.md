@@ -2,7 +2,7 @@
 Buttons for commands. 
 
 compile with 
-C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /t:winexe /out:box.exe box.cs
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /t:winexe /out:box9.exe box9.cs
 
 box9.cs is the final version, added color change ability
 
